@@ -1,0 +1,32 @@
+{
+    "manifest_version": 2,
+    "name": "ResultHider",
+    "description": "Hide the search results from the specific websites",
+    "version": "1.0.0",
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "storage",
+        "https://*.google.com/search",
+        "http://*.google.com/search"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.google.com/search*",
+                "http://*.google.com/search*"
+            ],
+            "js": [
+                "js/index.js"
+            ],
+            "run_at": "document_end"
+        }
+    ]
+}

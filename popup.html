@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+    <style>
+        body {
+            width: 200px;
+        }
+
+form {
+    margin: 10px;
+}
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            position: relative;
+        }
+
+        ul li:hover {
+            background-color: #f6f6f6;
+        }
+
+        li {
+            padding: 2px 0px;
+        }
+
+        .close {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            right: 0%;
+            padding-right: 10px;
+            transform: translate(0%, -50%);
+        }
+
+        input:focus,
+        button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <form autocomplete="off">
+            <input id="input-box" placeholder="example.com" autofocus />
+            <button id="submit-btn">Submit</button>
+        </form>
+
+        <div>
+            <ul id="block-list"></ul>
+        </div>
+    </div>
+
+    <script src="js/popup.js"></script>
+</body>
+
+</html>
