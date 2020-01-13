@@ -1,7 +1,7 @@
-const ACTION = { ADD: 1, REMOVE: 2 };
+const ACTIONS = { ADD: 1, REMOVE: 2 };
 
 function getElementTemplate(el) {
-    return `<li>${el}<span class="close" data-value="${el}">&times;</span></li>`
+    return `<li>${el}<span class="close" data-value="${el}"> &times; </span></li>`;
 }
 
 // retrieve list from storage and render
@@ -21,13 +21,13 @@ function updateStorageList(item, type) {
     chrome.storage.sync.get({ blockList: [] }, function ({ blockList }) {
 
         switch (type) {
-            case ACTION.ADD:
+            case ACTIONS.ADD:
                 if (blockList.includes(item)) return;
 
                 blockList.push(item);
                 break;
 
-            case ACTION.REMOVE:
+            case ACTIONS.REMOVE:
                 const index = blockList.indexOf(item);
                 blockList.splice(index, 1);
                 break;
@@ -51,12 +51,12 @@ window.onload = function () {
             const inputBox = document.getElementById('input-box');
             const text = inputBox.value.trim();
             inputBox.value = '';
-            updateStorageList(text, ACTION.ADD);
+            updateStorageList(text, ACTIONS.ADD);
         });
 
     // add event listener, remove the item
     document.getElementById('block-list')
         .addEventListener('click', function (event) {
-            updateStorageList(event.target.dataset.value, ACTION.REMOVE);
+            updateStorageList(event.target.dataset.value, ACTIONS.REMOVE);
         });
 }

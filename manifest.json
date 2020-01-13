@@ -1,21 +1,19 @@
 {
     "manifest_version": 2,
     "name": "ResultHider",
-    "description": "Hide the search results from the specific websites",
+    "description": "Hide the search results from the assigned specific domains, especially content farms.",
     "version": "1.0.0",
     "icons": {
-        "16": "icon.png",
-        "48": "icon.png",
-        "128": "icon.png"
+        "16": "images/icon_16x16.png",
+        "128": "images/icon_128x128.png",
+        "256": "images/icon_256x256.png"
     },
     "browser_action": {
-        "default_icon": "icon.png",
+        "default_icon": "images/icon_64x64.png",
         "default_popup": "popup.html"
     },
     "permissions": [
-        "storage",
-        "https://*.google.com/search",
-        "http://*.google.com/search"
+        "storage"
     ],
     "content_scripts": [
         {

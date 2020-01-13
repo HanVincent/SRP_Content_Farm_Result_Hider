@@ -1,6 +1,6 @@
 function getTemplate(href) {
     const hostname = new URL(href).hostname;
-    return `<div><h1 style="text-align: center;"> ${hostname}已被隱藏！</h1></div>`;
+    return `<div><h1 style="text-align: center;"> ${hostname} 已被隱藏！</h1></div>`;
 }
 
 
