@@ -1,4 +1,5 @@
 const ACTIONS = { ADD: 1, REMOVE: 2 };
+const DEFAULT_BLOCK_LIST = ['read01.com', 'kknews.cc'];
 
 function getElementTemplate(el) {
     return `<li>${el}<span class="close" data-value="${el}"> &times; </span></li>`;
@@ -6,7 +7,7 @@ function getElementTemplate(el) {
 
 // retrieve list from storage and render
 function renderList() {
-    chrome.storage.sync.get({ blockList: [] }, function ({ blockList }) {
+    chrome.storage.sync.get({ blockList: DEFAULT_BLOCK_LIST }, function ({ blockList }) {
         const listString = blockList.map(getElementTemplate).join('');
 
         document.getElementById('block-list').innerHTML = listString;
@@ -18,7 +19,7 @@ function renderList() {
 function updateStorageList(item, type) {
     if (!item) return;
 
-    chrome.storage.sync.get({ blockList: [] }, function ({ blockList }) {
+    chrome.storage.sync.get({ blockList: DEFAULT_BLOCK_LIST }, function ({ blockList }) {
 
         switch (type) {
             case ACTIONS.ADD:
