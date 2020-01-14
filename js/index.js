@@ -1,5 +1,4 @@
-function getTemplate(href) {
-    const hostname = new URL(href).hostname;
+function getTemplate(hostname) {
     return `<div><h1 style="text-align: center;"> ${hostname} 已被隱藏！</h1></div>`;
 }
 
@@ -13,7 +12,7 @@ function removeResults(blockList) {
 
         for (let each of blockList) {
             if (hostname.includes(each)) {
-                result.innerHTML = getTemplate(href);
+                result.innerHTML = getTemplate(hostname);
                 break;
             }
         }

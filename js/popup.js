@@ -38,6 +38,18 @@ function updateStorageList(item, type) {
     });
 }
 
+const HOSTNAME_REGEX = new RegExp(/^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9]))(\.([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9]))+$/gm);
+function getHostname(url) {
+    if (url.startsWith("https:") || url.startsWith("http:")) {
+        try {
+            return new URL(url).hostname;
+        } catch (e) {
+            return null;
+        }
+    
+    }
+    return HOSTNAME_REGEX.test(url) ? url : null;
+}
 
 window.onload = function () {
 
@@ -50,9 +62,14 @@ window.onload = function () {
             event.preventDefault();
 
             const inputBox = document.getElementById('input-box');
-            const text = inputBox.value.trim();
-            inputBox.value = '';
-            updateStorageList(text, ACTIONS.ADD);
+            const url = inputBox.value.trim();
+            const hostname = getHostname(url);
+            if (hostname) {   
+                updateStorageList(hostname, ACTIONS.ADD);
+                inputBox.value = '';
+            } else {
+                alert("Wrong format, please checkt it.");
+            }
         });
 
     // add event listener, remove the item
