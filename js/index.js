@@ -4,7 +4,7 @@ function getTemplate(hostname) {
 
 
 function removeResults(blockList) {
-    const results = document.querySelectorAll('.srg .g');
+    const results = document.querySelectorAll('.g');
 
     results.forEach(result => {
         const href = result.querySelector('.rc .r a').href;
