@@ -1,6 +1,6 @@
-# ResultHider
+# SRP Content Farm Result Hider
 
-The easy-to-use chrome extension to hide the search results from the specific websites.
+The easy-to-use chrome extension to hide the content farm results from Google search page.
 
 <!-- ## Install By using Chrome Web Store
 [Install Now]() -->
